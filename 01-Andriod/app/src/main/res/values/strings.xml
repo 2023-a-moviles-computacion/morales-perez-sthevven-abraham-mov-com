@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">MovilesComp2023A</string>
+    <string name="bienvenida">Bienvenida</string>
+    <string name="bienvenida_ingles_land">Bienvenida Land Ingles</string>
+    <string name="bienvenida_ingles_port">Bienvenida Port Ingles</string>
+    <string name="bienvenida_land_espanol">Bienvenida Land Espanol</string>
+    <string name="bienvenida_port_espanol">Bienvenida Port Espanol</string>
+
+</resources>

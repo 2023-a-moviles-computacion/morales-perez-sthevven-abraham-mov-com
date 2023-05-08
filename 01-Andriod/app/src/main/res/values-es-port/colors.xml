@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
+        <item name="android:textColor">@color/condition4_text_color</item>
+        <item name="android:background">@color/condition4_background_color</item>
+    </style>
+</resources>
