@@ -107,7 +107,7 @@ class BListView : AppCompatActivity() {
             BEntrenador(
                 1,
                 "Sthevven",
-               " escripcion"
+               " Descripcion"
             )//nose
         )
         adaptador.notifyDataSetChanged()
