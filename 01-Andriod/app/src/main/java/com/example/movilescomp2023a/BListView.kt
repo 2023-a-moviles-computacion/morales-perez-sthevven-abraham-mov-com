@@ -110,8 +110,9 @@ class BListView : AppCompatActivity() {
                 1,
                 "Sthevven",
                " escripcion"
-            )
+            )//nose
         )
         adaptador.notifyDataSetChanged()
+
     }
 }
