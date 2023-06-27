@@ -5,14 +5,16 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.ContextMenu
 import android.view.MenuItem
+import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Button
 import android.widget.ListView
 import androidx.appcompat.app.AlertDialog
 
 class BListView : AppCompatActivity() {
     val arreglo =BBaseDatosMemoria.arregloBEntrenador
-    val idItemSeleccionado =0
+    var idItemSeleccionado =0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_blist_view)
@@ -35,15 +37,11 @@ class BListView : AppCompatActivity() {
         registerForContextMenu(listView)
     }
 
-    override fun onCreateContextMenu(
-        menu: ContextMenu?,
-        v:View?,
-        menuInfo: ContextMenu,ContextMenuInfo?
-    ){
-        super.onCreateContextMenu(menu,v,menuInfo)
-        val in inflater =menuInflater
+    override fun onCreateContextMenu(menu: ContextMenu, v: View, menuInfo: ContextMenu.ContextMenuInfo){
+        super.onCreateContextMenu(menu, v ,menuInfo)
+        val  inflater =menuInflater
         inflater.inflate(R.menu.menu, menu)
-        val info =munuInfo as AdapterView.AdapterContextMenuInfo
+        val info = menuInfo as AdapterView.AdapterContextMenuInfo
         val id = info.position
         idItemSeleccionado=id
     }
