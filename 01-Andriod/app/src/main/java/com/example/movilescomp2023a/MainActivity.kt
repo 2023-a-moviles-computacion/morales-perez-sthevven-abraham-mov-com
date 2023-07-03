@@ -80,6 +80,13 @@ class MainActivity : AppCompatActivity() {
     fun abrirActividadConParametros(
         clase: Class<*>
     ){
+        val intentExplicito = Intent(this, clase)
+        //envir [arametros solamente variables primitivos
+        intentExplicito.putExtra("nombre","Sthevven")
+        intentExplicito.putExtra("apellido","Morales")
+        intentExplicito.putExtra("edad",23)
+
+        callbackContenidoIntentExplicito.launch(intentExplicito)
 
     }
 
