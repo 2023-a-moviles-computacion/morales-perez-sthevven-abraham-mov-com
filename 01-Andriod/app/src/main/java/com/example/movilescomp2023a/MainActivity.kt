@@ -8,6 +8,8 @@ import android.net.Uri
 import android.provider.ContactsContract
 import android.widget.Button
 import androidx.activity.result.contract.ActivityResultContracts
+import com.example.movilescomputacion2023a.CIntentExplicitoParametros
+import com.example.movilescomputacion2023a.ESqliteHelperEntrenador
 
 class MainActivity : AppCompatActivity() {
      val callbackContenidoIntentExplicito=
@@ -48,6 +50,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        //base de satos sqlite
+        EBaseDeDatos.tablaEntrenador= ESqliteHelperEntrenador(this)
 
         val botonCicloVida=findViewById<Button>(R.id.btn_ciclo_vida)
         botonCicloVida
