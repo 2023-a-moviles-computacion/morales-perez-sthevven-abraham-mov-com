@@ -1,4 +1,4 @@
-<<<<<<< Original<?xml version="1.0" encoding="utf-8"?><manifest xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?><manifest xmlns:android="http://schemas.android.com/apk/res/android"
 xmlns:tools="http://schemas.android.com/tools">
 
 <application
@@ -10,14 +10,18 @@ xmlns:tools="http://schemas.android.com/tools">
     android:roundIcon="@mipmap/ic_launcher_round"
     android:supportsRtl="true"
     android:theme="@style/Theme.MovilesComp2023A"
-    tools:targetApi="31"
-    tools:ignore="ExtraText">
-    <intent-filter
+    tools:targetApi="31">
+    <activity
         android:name=".CIntentExplicitoParametros"
-        android:exported="false"
-        android:label="@string/title_activity_cintent_explicito_parametros"
-        android:theme="@style/Theme.MovilesComp2023A" />
+        android:exported="false">
+        <intent-filter>
+            <action android:name="android.intent.action.SEND" />
 
+            <category android:name="android.intent.category.DEFAULT" />
+
+            <data android:mimeType="text/plain" />
+        </intent-filter>
+    </activity>
     <activity
         android:name=".BListView"
         android:exported="false">
@@ -58,7 +62,7 @@ xmlns:tools="http://schemas.android.com/tools">
 
 </manifest>
 
-    =======
+
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 <application>
@@ -73,4 +77,4 @@ xmlns:tools="http://schemas.android.com/tools">
         </intent-filter>
     </activity>
 </application>
-</manifest>>>>>>>> Added
+</manifest>

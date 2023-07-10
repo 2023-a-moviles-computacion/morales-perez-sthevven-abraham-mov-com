@@ -17,6 +17,7 @@
     <string name="todo">TODO</string>
     <string name="title_activity_cintent_explicito_parametros">CIntentExplicitoParametros</string>
     <string name="title_activity_ecrud_entrenador">ECrudEntrenador</string>
+    <string name="title_activity_frecycler_view">FRecyclerView</string>
 
 
 </resources>
