@@ -1,43 +1,55 @@
-package com.example.movilescomp2023a
+package com.example.movilescomputacion2023a
 
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.movilescomp2023a.ui.theme.MovilesComp2023ATheme
+import android.widget.Button
+import android.widget.EditText
+import com.example.movilescomp2023a.EBaseDeDatos
+import com.example.movilescomp2023a.R
 
-class ECrudEntrenador : ComponentActivity() {
+class ECrudEntrenador : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent {
-            MovilesComp2023ATheme {
-                // A surface container using the 'background' color from the theme
-                Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-                    Greeting2("Android")
-                }
+        setContentView(R.layout.activity_ecrud_entrenador)
+
+        val botonBuscarBDD = findViewById<Button>(R.id.btn_buscar_bdd)
+        botonBuscarBDD
+            .setOnClickListener {
+                val id = findViewById<EditText>(R.id.input_id)
+                val nombre = findViewById<EditText>(R.id.input_nombre)
+                val descripcion = findViewById<EditText>(
+                    R.id.input_descripcion
+                )
+                val entrenador = EBaseDeDatos.tablaEntrenador!!
+                    .consultarEntrenadorPorID(
+                        id.text.toString().toInt()
+                    )
+                id.setText(entrenador.id.toString())
+                nombre.setText(entrenador.nombre)
+                descripcion.setText(entrenador.descripcion)
             }
-        }
+        val botonCrearBDD = findViewById<Button>(R.id.btn_crear_bdd)
+        botonCrearBDD
+            .setOnClickListener{
+                val nombre=findViewById<EditText>(R.id.input_nombre)
+                val descripcion=findViewById<EditText>(R.id.input_descripcion)
+                EBaseDeDatos.tablaEntrenador!!.crearEntrenador(
+                    nombre.text.toString(),
+                    descripcion.text.toString()
+                )
+            }
+        val botonActualizarBDD = findViewById<Button>(R.id.btn_actualizar_bdd)
+        botonActualizarBDD
+            .setOnClickListener{
+                val id=findViewById<EditText>(R.id.input_id)
+                val nombre=findViewById<EditText>(R.id.input_nombre)
+                val descripcion=findViewById<EditText>(R.id.input_descripcion)
+                EBaseDeDatos.tablaEntrenador!!.actualizarEntrenadorFormulario(
+                    nombre.text.toString(),
+                    descripcion.text.toString(),
+                    id.text.toString().toInt()
+                )
+            }
     }
-}
 
-@Composable
-fun Greeting2(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview2() {
-    MovilesComp2023ATheme {
-        Greeting2("Android")
-    }
 }
