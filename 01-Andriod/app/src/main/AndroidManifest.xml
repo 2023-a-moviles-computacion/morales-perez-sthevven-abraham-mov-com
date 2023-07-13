@@ -61,20 +61,3 @@ xmlns:tools="http://schemas.android.com/tools">
 </application>
 
 </manifest>
-
-
-
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
-<application>
-    <activity
-        android:name="com.example.movilescomp2023a.activity_ecrud_entrenador"
-        android:exported="true"
-        android:label="@string/title_activity_ecrud_entrenador"
-        android:theme="@style/Theme.MovilesComp2023A">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-    </activity>
-</application>
-</manifest>
