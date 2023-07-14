@@ -108,9 +108,9 @@ class BListView : AppCompatActivity() {
                 1,
                 "Sthevven",
                " Descripcion"
-            )//nose
+            )//no se
         )
         adaptador.notifyDataSetChanged()
-
+       //termina la funcion
     }
 }
