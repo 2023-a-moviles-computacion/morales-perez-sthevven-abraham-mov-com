@@ -1,1 +1,2 @@
 Limon,90,0.15,false,acida
+Manzana,100,0.25,true,dulce

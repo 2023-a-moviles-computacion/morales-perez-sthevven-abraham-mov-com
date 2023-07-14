@@ -1,1 +1,2 @@
 Conchita tu Bebecita,Gaspar y 12 Octubre,3,true,2500.65
+La Vecina,Alangasi,2,true,1000.5
