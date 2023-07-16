@@ -46,7 +46,7 @@ class FruteriasFormularioEditar : AppCompatActivity() {
         val idFruteria = idDos.text.toString().toInt()
         val ind = buscarIndice(idFruteria)
 
-        id.isEnabled = true
+        id.isEnabled = false
 
         val botonAceptarEditar = findViewById<Button>(R.id.btn_aceptar_fruteria_formulario_editar)
         botonAceptarEditar.setOnClickListener {
