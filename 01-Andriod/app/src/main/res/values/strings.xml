@@ -21,6 +21,8 @@
     <string name="title_activity_f">F</string>
     <string name="title_activity_main2">MainActivity2</string>
     <string name="title_activity_google_maps_inicio">GoogleMapsInicio</string>
+    <string name="hola">HOLA</string>
+    <string name="button">Button</string>
 
 
 </resources>

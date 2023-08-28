@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package = "com.example.movilescomp2023a">
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    package="com.example.movilescomp2023a">
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -15,7 +16,29 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MovilesComp2023A"
         tools:targetApi="31">
+        <activity
+            android:name=".IFirestore"
+            android:exported="false" />
+        <activity
+            android:name=".HFirebaseUIAuth"
+            android:exported="false" />
+        <activity
+            android:name=".FRecyclerView"
+            android:exported="false" />
+        <activity
+            android:name=".ECrudEntrenador"
+            android:exported="false" />
+        <activity
+            android:name=".CIntentExplicitoParametros"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
 
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".GGoogleMaps"
             android:exported="false" />
@@ -32,23 +55,12 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="YOUR_API_KEY" />
+            android:value="AIzaSyCZnHvMtkadW64vde1xUHNfG2xWw6awITs" />
 
         <activity
             android:name=".GoogleMapsInicio"
             android:exported="false"
             android:label="@string/title_activity_google_maps_inicio" />
-        <activity
-            android:name=".CIntentExplicitoParametros"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="android.intent.action.SEND" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-
-                <data android:mimeType="text/plain" />
-            </intent-filter>
-        </activity>
         <activity
             android:name=".BListView"
             android:exported="false">
@@ -60,7 +72,7 @@
             android:name=".AACicloVida"
             android:exported="false"
             android:label="@string/title_activity_aaciclo_vida"
-            android:theme="@style/Theme.MovilesComp2023A.NoActionBar">
+            android:theme="@style/Theme.MovilesComputacion2023A.NoActionBar">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

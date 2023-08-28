@@ -1,6 +1,5 @@
 package com.example.movilescomp2023a
 
-import android.app.Activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.content.Intent
@@ -8,7 +7,6 @@ import android.net.Uri
 import android.provider.ContactsContract
 import android.widget.Button
 import androidx.activity.result.contract.ActivityResultContracts
-import com.example.movilescomputacion2023a.CIntentExplicitoParametros
 import com.example.movilescomputacion2023a.ESqliteHelperEntrenador
 
 class MainActivity : AppCompatActivity() {
@@ -84,6 +82,18 @@ class MainActivity : AppCompatActivity() {
         botonGoogleMaps
             .setOnClickListener{
                 irActividad(GGoogleMaps::class.java)
+            }
+
+        val botonFirebaseUI = findViewById<Button>(R.id.btn_intent_firebase_ui)
+        botonFirebaseUI
+            .setOnClickListener{
+                irActividad(HFirebaseUIAuth::class.java)
+            }
+
+        val botonFirestore = findViewById<Button>(R.id.btn_intent_firestore)
+        botonFirestore
+            .setOnClickListener{
+                irActividad(HFirebaseUIAuth::class.java)
             }
     }
 
