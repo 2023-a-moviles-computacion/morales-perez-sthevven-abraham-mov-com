@@ -1,10 +1,6 @@
 package com.example.deber02_sqlite
-import android.os.Build
 import android.os.Parcel
 import android.os.Parcelable
-import androidx.annotation.RequiresApi
-import java.text.SimpleDateFormat
-import java.util.*
 
 class Frutas(
     var codigoFruteria :Int?,
@@ -18,7 +14,7 @@ class Frutas(
         return "${nombreFruta}\n\tCantidad: ${cantidad}\n\tPrecio Unidad: ${precioUnidad}\n\tEs Organica?: ${esOrganica}\n\tTipo de Fruta: ${tipoFruta}"
     }
 
-    fun crearFrutas(nombreFruta: String?,cantidad: Int?,precioUnidad: Double?,esOrganica: Boolean?,tipoFruta: String?) {
+    fun crearFrutas(nombreFruta: String,cantidad: Int,precioUnidad: Double,esOrganica: Boolean,tipoFruta: String) {
         this.nombreFruta = nombreFruta
         this.cantidad = cantidad
         this.precioUnidad = precioUnidad
@@ -26,22 +22,23 @@ class Frutas(
         this.tipoFruta = tipoFruta
     }
 
-    @RequiresApi(Build.VERSION_CODES.Q)
+
     constructor(parcel: Parcel) : this(
         parcel.readInt(),
         parcel.readString()!!,
         parcel.readInt(),
         parcel.readDouble(),
-        parcel.readBoolean(),
+        parcel.readByte() != 0.toByte(),
         parcel.readString()!!
     )
 
-    @RequiresApi(Build.VERSION_CODES.Q)
+
     override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeInt(codigoFruteria!!)
         parcel.writeString(nombreFruta)
         parcel.writeInt(cantidad!!)
         parcel.writeDouble(precioUnidad!!)
-        parcel.writeBoolean(esOrganica==true)
+        parcel.writeByte(if (esOrganica!!) 1 else 0)
         parcel.writeString(tipoFruta)
     }
 
@@ -50,7 +47,7 @@ class Frutas(
     }
 
     companion object CREATOR : Parcelable.Creator<Frutas> {
-        @RequiresApi(Build.VERSION_CODES.Q)
+
         override fun createFromParcel(parcel: Parcel): Frutas {
             return Frutas(parcel)
         }

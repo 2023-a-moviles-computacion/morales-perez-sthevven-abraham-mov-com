@@ -83,7 +83,7 @@ class FruteriaFormularioEditar : AppCompatActivity() {
     }
 
     companion object {
-        const val EXTRA_FRUTERIA=
+         const val EXTRA_FRUTERIA=
             "fruteria" // Mismo nombre de constante que en ListvContinente
     }
 }

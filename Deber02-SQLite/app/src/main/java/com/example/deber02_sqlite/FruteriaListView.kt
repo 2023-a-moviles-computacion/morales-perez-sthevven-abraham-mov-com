@@ -17,7 +17,7 @@ class FruteriaListView : AppCompatActivity() {
     private lateinit var arreglo: MutableList<Fruterias>
     private lateinit var listView: ListView
     private lateinit var adaptador: ArrayAdapter<Fruterias>
-    private var idItemSeleccionado = 0
+    private var idItem = 0
     private lateinit var databaseHelper: BaseDeDatosSQLite
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -77,14 +77,14 @@ class FruteriaListView : AppCompatActivity() {
         //obtener el id de ArrayListSeleccionado
         val info=menuInfo as AdapterView.AdapterContextMenuInfo
         val id=info.position
-        idItemSeleccionado=id
+        idItem=id
     }
 
     //del item seleccionado
     override fun onContextItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.mi_editar->{
-                val fruteria = arreglo[idItemSeleccionado]
+                val fruteria = arreglo[idItem]
                 val intent = Intent(this, FruteriaFormularioEditar::class.java)
                 intent.putExtra(FruteriaFormularioEditar.EXTRA_FRUTERIA, fruteria)
                 startActivity(intent)
@@ -97,8 +97,8 @@ class FruteriaListView : AppCompatActivity() {
             }
             R.id.mi_ver->{
                 val intent = Intent(this, FrutaListView::class.java)
-                intent.putExtra("fruteriaId", arreglo[idItemSeleccionado].id)
-                intent.putExtra("nombre de fruteria", arreglo[idItemSeleccionado].nombre)
+                intent.putExtra("fruteriaId", arreglo[idItem].id)
+                intent.putExtra("nombre de fruteria", arreglo[idItem].nombre)
 
                 startActivity(intent)
                 adaptador.notifyDataSetChanged()
@@ -111,12 +111,12 @@ class FruteriaListView : AppCompatActivity() {
     //accion al seleccionar Eliminar
     fun abrirDialogo(){
         val builder= AlertDialog.Builder(this)  //constructor de dialogo
-        builder.setTitle("Desea eliminar? " +arreglo[idItemSeleccionado].nombre)
+        builder.setTitle("Desea eliminar? " +arreglo[idItem].nombre)
         builder.setPositiveButton(
             "Aceptar",
             DialogInterface.OnClickListener{ dialog, which->
-                databaseHelper.deleteFruteria(arreglo[idItemSeleccionado].id)
-                arreglo.removeAt(idItemSeleccionado)
+                databaseHelper.deleteFruteria(arreglo[idItem].id)
+                arreglo.removeAt(idItem)
                 adaptador.notifyDataSetChanged()
             }
         )
@@ -130,7 +130,7 @@ class FruteriaListView : AppCompatActivity() {
     }
 
     companion object { //instancias estàticas
-        private const val EXTRA_FRUTERIA = "fruteria" //Esta constante se utiliza como clave para pasar datos extras a través de un Intent al iniciar una actividad.
+         private const val EXTRA_FRUTERIA = "fruteria" //Esta constante se utiliza como clave para pasar datos extras a través de un Intent al iniciar una actividad.
     }
 
 }

@@ -5,9 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
-import android.widget.Toast
-import java.text.SimpleDateFormat
-import java.util.*
+
 
 class FrutaFormularioEditar : AppCompatActivity() {
     private lateinit var botonGuardar: Button

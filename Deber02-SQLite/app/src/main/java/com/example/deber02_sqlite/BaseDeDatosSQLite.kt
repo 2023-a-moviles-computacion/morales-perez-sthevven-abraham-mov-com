@@ -5,13 +5,12 @@ import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import java.text.SimpleDateFormat
 import java.util.*
 
 class BaseDeDatosSQLite (context: Context?) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
     companion object {
-        private const val DATABASE_NAME = "Fruteria-Frutas"
+        private const val DATABASE_NAME = "DEBER"
         private const val DATABASE_VERSION = 1
     }
 
@@ -19,19 +18,19 @@ class BaseDeDatosSQLite (context: Context?) : SQLiteOpenHelper(context, DATABASE
         // Crear las tablas necesarias en la base de datos
         val createFruteriasTableQuery = """CREATE TABLE IF NOT EXISTS FRUTERIAS
                 (id INTEGER PRIMARY KEY AUTOINCREMENT,
-                nombre VARCHAR(50), 
-                direccion VARCHAR(50),
+                nombre TEXT, 
+                direccion TEXT,
                 cantidadEmpleados INTEGER,
-                estaAbierto VARCHAR(50),
-                ingresosSemanales DOUBLE)""".trimIndent()
+                estaAbierto INTEGER,
+                ingresosSemanales REAL)""".trimIndent()
 
-        val createFrutasTableQuery = """CREATE TABLE IF NOT EXISTS FRUTAS 
+        val createFrutasTableQuery = """CREATE TABLE IF NOT EXISTS FRUTAS
                 (IdFruteria INTEGER PRIMARY KEY, 
-                nombre VARCHAR(50), 
+                nombre TEXT, 
                 cantidad INTEGER,
-                precioUnidad DOUBLE,
-                esCapital VARCHAR(50),
-                tipoFruta VARCHAR(50))""".trimIndent()
+                precioUnidad REAL,
+                esCapital INTEGER,
+                tipoFruta TEXT)""".trimIndent()
 
         db?.execSQL(createFruteriasTableQuery)
         db?.execSQL(createFrutasTableQuery)
@@ -49,7 +48,7 @@ class BaseDeDatosSQLite (context: Context?) : SQLiteOpenHelper(context, DATABASE
             put("Nombre Fruteria", fruterias.nombre)
             put("Direccion", fruterias.direccion)
             put("Cantidad de Empleados", fruterias.cantidadEmpleados)
-            put("Esta Abierto", fruterias.estaAbierto)
+            put("Esta Abierto",if(fruterias.estaAbierto!!) 1 else 0)
             put("Ingresos", fruterias.ingresosSemanales)
         }
 
@@ -68,7 +67,7 @@ class BaseDeDatosSQLite (context: Context?) : SQLiteOpenHelper(context, DATABASE
             put("Nombre Fruteria", fruterias.nombre)
             put("Direccion", fruterias.direccion)
             put("Cantidad de Empleados", fruterias.cantidadEmpleados)
-            put("Esta Abierto", fruterias.estaAbierto)
+            put("Esta Abierto",if(fruterias.estaAbierto!!) 1 else 0)
             put("Ingresos", fruterias.ingresosSemanales)
         }
 

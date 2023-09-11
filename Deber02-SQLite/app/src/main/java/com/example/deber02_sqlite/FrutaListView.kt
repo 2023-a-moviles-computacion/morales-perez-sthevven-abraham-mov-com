@@ -125,6 +125,6 @@ class FrutaListView : AppCompatActivity() {
     }
 
     companion object {
-        private const val EXTRA_FRUTA = "fruta"
+       private const val EXTRA_FRUTA = "fruta"
     }
 }

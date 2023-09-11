@@ -1,9 +1,6 @@
 package com.example.deber02_sqlite
-import android.os.Build
-import java.util.*
 import android.os.Parcel
 import android.os.Parcelable
-import androidx.annotation.RequiresApi
 
 //Parceable para enviar y recibir entre componentes, facilita transferencia y persistencia
 class Fruterias(
@@ -18,7 +15,7 @@ class Fruterias(
         return "Nombre Fruteria: ${nombre}\n\t Direccion: ${direccion}\n\t Cantidad Empleados: ${cantidadEmpleados}\n\t Esta Abierto? ${estaAbierto}\n\t  Ingresos Semanales: ${ingresosSemanales}"
     }
 
-    fun crearFruteria(nombre: String, direccion: String?, cantidadEmpleados: Int?,estaAbierto: Boolean?,ingresosSemanales: Double?) {
+    fun crearFruteria(nombre: String, direccion: String, cantidadEmpleados: Int,estaAbierto: Boolean,ingresosSemanales: Double) {
         this.nombre = nombre
         this.direccion = direccion
         this.cantidadEmpleados= cantidadEmpleados
@@ -26,23 +23,23 @@ class Fruterias(
         this.ingresosSemanales = ingresosSemanales
     }
 
-    @RequiresApi(Build.VERSION_CODES.Q)
+
     constructor(parcel: Parcel) : this( //Un Parcel es un contenedor de datos que se utiliza para enviar y recibir objetos
         parcel.readInt(),               //Este constructor se utiliza para deserializar un objeto Fruterias a partir de un Parcel
-        parcel.readString()!!,
-        parcel.readString()!!,
+        parcel.readString(),
+        parcel.readString(),
         parcel.readInt(),
-        parcel.readBoolean(),
+        parcel.readByte() != 0.toByte(),
         parcel.readDouble()
     )
 
-    @RequiresApi(Build.VERSION_CODES.Q)
+
     override fun writeToParcel(parcel: Parcel, flags: Int) { //para escribir los valores de las propiedades de la clase en un Parcel
         parcel.writeInt(id)
         parcel.writeString(nombre)
         parcel.writeString(direccion)
         parcel.writeInt(cantidadEmpleados!!)
-        parcel.writeBoolean(estaAbierto!!)
+        parcel.writeByte(if (estaAbierto!!) 1 else 0)
         parcel.writeDouble(ingresosSemanales!!)
     }
 
@@ -51,7 +48,6 @@ class Fruterias(
     }
 
     companion object CREATOR : Parcelable.Creator<Fruterias> { //para crear instancias de la clase Continente a partir de un Parcel
-        @RequiresApi(Build.VERSION_CODES.Q)
         override fun createFromParcel(parcel: Parcel): Fruterias{
             return Fruterias(parcel)
         }
@@ -61,3 +57,4 @@ class Fruterias(
         }
     }
 }
+

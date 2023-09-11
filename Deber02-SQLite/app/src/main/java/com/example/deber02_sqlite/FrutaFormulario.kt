@@ -1,13 +1,11 @@
 package com.example.deber02_sqlite
 
-import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
-import java.text.SimpleDateFormat
-import java.util.*
+
 
 class FrutaFormulario: AppCompatActivity() {
     private lateinit var arreglo: MutableList<Frutas>

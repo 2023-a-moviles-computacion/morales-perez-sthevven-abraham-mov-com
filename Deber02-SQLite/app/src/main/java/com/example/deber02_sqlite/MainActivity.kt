@@ -11,8 +11,8 @@ class MainActivity : AppCompatActivity() {//viene de AppCompatActivity
         super.onCreate(savedInstanceState) //hereda del padre
         setContentView(R.layout.activity_main) // R=Resource, activity_main=interfaz
 
-        val botonListContinente = findViewById<Button>(R.id.btn_ir_lvfruteria)
-        botonListContinente
+        val botonListFruteria = findViewById<Button>(R.id.btn_ir_lvfruteria)
+        botonListFruteria
             .setOnClickListener {
                 irActividad(FruteriaListView::class.java)
             }
