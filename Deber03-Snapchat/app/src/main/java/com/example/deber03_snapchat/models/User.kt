@@ -1,7 +1,6 @@
 package com.example.deber03_snapchat.models
 
 import com.example.deber03_snapchat.utils.SerializedName
-
 class User() {
     @SerializedName("name")
     var name: String? = null
